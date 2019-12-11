@@ -38,7 +38,7 @@ nnoremap k gk
 nnoremap gV `[v`]
 
 "custom (leader) shortcuts
-let mapleader=","       " leader is comma
+let mapleader=";"       " leader is semicolon
 
 " turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
