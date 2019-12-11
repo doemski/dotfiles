@@ -1,0 +1,54 @@
+"https://dougblack.io/words/a-good-vimrc.html START
+
+"colors
+syntax enable           " enable syntax processing
+
+"tabs
+set tabstop=4       " number of visual spaces per TAB
+set softtabstop=4   " number of spaces in tab when editing
+set expandtab       " tabs are spaces
+
+"UI
+set number relativenumber           " show line numbers
+"Line number toggle
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu | set rnu   | endif
+  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu | set nornu | endif
+augroup END
+
+set showcmd             " show command in bottom bar
+set cursorline          " highlight current line
+filetype indent on      " load filetype-specific indent files
+set wildmenu            " visual autocomplete for command menu
+set lazyredraw          " redraw only when we need to.
+set showmatch           " highlight matching [{()}]
+
+"searching
+set incsearch           " search as characters are entered
+set hlsearch            " highlight matches
+
+
+"movement
+"move vertically by visual line
+nnoremap j gj
+nnoremap k gk
+
+"highlight last inserted text
+nnoremap gV `[v`]
+
+"custom (leader) shortcuts
+let mapleader=","       " leader is comma
+
+" turn off search highlight
+nnoremap <leader><space> :nohlsearch<CR>
+
+" toggle gundo
+nnoremap <leader>u :GundoToggle<CR>
+
+" save session
+nnoremap <leader>s :mks!<CR>
+
+"finding files
+set path+=**
+set wildmenu
