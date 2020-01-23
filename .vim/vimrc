@@ -38,17 +38,24 @@ nnoremap k gk
 nnoremap gV `[v`]
 
 "custom (leader) shortcuts
-let mapleader=";"       " leader is semicolon
+let mapleader="\<Space>"       " leader is space
 
 " turn off search highlight
 nnoremap <leader><space> :nohlsearch<CR>
 
 " toggle gundo
-nnoremap <leader>u :GundoToggle<CR>
+nnoremap <leader>u :UndotreeToggle<CR>
 
 " save session
 nnoremap <leader>s :mks!<CR>
 
 "finding files
 set path+=**
-set wildmenu
+
+"plugin bundling
+execute pathogen#infect()
+call pathogen#infect()
+source /home/doemski/.vim/autoload/pathogen.vim "location of my pathogen.vim
+call pathogen#infect('bundle/*')
+call pathogen#helptags()
+execute pathogen#infect('~/.dotfiles/.vim/bundle/{}')
