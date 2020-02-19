@@ -108,3 +108,5 @@ export PATH=$HOME/.local/bin:$PATH
 
 # Make sudo nano work with kitty terminal
 export TERM=xterm
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
