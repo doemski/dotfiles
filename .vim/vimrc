@@ -10,10 +10,11 @@ set mouse=n
 " https://github.com/numirias/security
 set nomodeline
 
-"custom (leader) shortcuts
+" set mapleader 
 let mapleader=" "       " leader is space
 
-" Plugins
+"""""""""""""""""""" Plugins
+
 " Automatic installation of vim-plug
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !mkdir -p ~/.vim/autoload
@@ -22,26 +23,43 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     autocmd VimEnter * PlugInstall
 endif
 
+
 call plug#begin('~/.vim/plugged')
-" Plug 'itchyny/lightline.vim'                                                        " Nice bar at the bottom
 Plug 'vim-airline/vim-airline'
-Plug 'tpope/vim-repeat'                                                             " Repeatable plugins
-Plug 'tpope/vim-commentary'                                                         " Commenting with 'gc'
-Plug 'jiangmiao/auto-pairs'                                                         " '' () [] {}
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }                   " PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run the install script
-Plug 'preservim/nerdtree'                                                           " Directory browser
-Plug 'dhruvasagar/vim-vinegar'                                                      " - to open NERDTree inside split
-Plug 'mbbill/undotree'                                                              " Undotree visualisation
-Plug 'airblade/vim-gitgutter'                                                       " Git changes in gutter
-Plug 'tpope/vim-obsession'                                                          " Session Management
+ " Repeatable plugins
+Plug 'tpope/vim-repeat'                                                            
+ " Commenting with 'gc'
+Plug 'tpope/vim-commentary'                                                        
+ " '' () [] {}
+Plug 'jiangmiao/auto-pairs'                                                        
+ " PlugInstall and PlugUpdate will clone fzf in ~/.fzf and run the install
+ " script
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }                  
+ " Directory browser
+Plug 'preservim/nerdtree'                                                          
+ " - to open NERDTree inside split
+Plug 'dhruvasagar/vim-vinegar'                                                     
+ " Undotree visualisation
+Plug 'mbbill/undotree'                                                             
+ " Git changes in gutter
+Plug 'airblade/vim-gitgutter'                                                      
+ " Session Management
+Plug 'tpope/vim-obsession'                                                         
+ " Syntax highlighting
 Plug 'sheerun/vim-polyglot'
 call plug#end()
 
 
-" Plugin specific stuff
+"""" Plugin options/config
+
+" vim-obsession
 let g:sessions_dir = '~/vim-sessions'
 exec 'nnoremap <Leader>ss :Obsession ' . g:sessions_dir . '/*.vim<C-D><BS><BS><BS><BS><BS>' 
 nnoremap <Leader>sf :Obsession<CR>                                                  
+
+" FZF
+nnoremap <Leader>o :FZF<CR>
+nnoremap <Leader>O :FZF ~<CR>
 
 "colors
 syntax enable           " enable syntax processing
@@ -75,14 +93,8 @@ set incsearch           " search as characters are entered
 nnoremap j gj
 nnoremap k gk
 
-"highlight last inserted text
-nnoremap gV `[v`]
-
 "toggle gundo
 nnoremap <leader>u :UndotreeToggle<CR>
-
-"finding files
-set path+=**
 
 "split navigations
 nnoremap <C-J> <C-W><C-J>
@@ -90,6 +102,12 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+"move auto-generated files to .vim folder
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
+
+" 80 char ruler
+set colorcolumn=80
+highlight ColorColumn ctermbg=233
+
