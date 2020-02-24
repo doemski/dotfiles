@@ -209,13 +209,15 @@ bindsym $mod+Shift+Right resize grow width 10 px or 10 ppt
 exec_always setxkbmap eu
 exec thunderbird
 exec rambox
-#exec_always feh --bg-scale /home/doemski/Pictures/background_start.jpg
-exec_always --no-startup-id feh --bg-scale '/home/doemski/Pictures/background_stars.jpg'
+# exec_always --no-startup-id feh --bg-scale '/home/doemski/Pictures/wallpapers/background_stars.jpg'
+exec_always --no-startup-id feh --bg-scale '/home/doemski/Pictures/wallpapers/hexagons.jpg'
+
 #exec_always xrandr --auto
 exec compton -f --config ~/.config/compton/compton.conf 
 
 
-set $bg-color 	         #697a21
+set $bg-color 	         #f4b862
+# #697a21
 # #708d81
 set $inactive-bg-color   #1b2432
 # #153243 #697a21
