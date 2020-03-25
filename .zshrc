@@ -110,3 +110,9 @@ export PATH=$HOME/.local/bin:$PATH
 export TERM=xterm
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Add sonar-scanner to path
+export PATH="/home/doemski/sonar-scanner/sonar-scanner-4.0.0.1744-linux/bin:$PATH"
+
+# Add apache-jmeter to path
+export PATH="$PATH:/home/doemski/apache-jmeter/bin"
