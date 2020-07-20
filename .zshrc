@@ -97,6 +97,11 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+alias kubeSP="kubectl -n=streampipes"
+alias kubeU="kubectl -n=unicorn"
+alias kubeLA="kubectl -n=lionaid"
+
 source /home/doemski/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Python pyenv stuff
@@ -116,3 +121,12 @@ export PATH="/home/doemski/sonar-scanner/sonar-scanner-4.0.0.1744-linux/bin:$PAT
 
 # Add apache-jmeter to path
 export PATH="$PATH:/home/doemski/apache-jmeter/bin"
+
+# Add z 
+source /home/doemski/z.sh
+
+# Kubernetes stuff
+# kubectl completion
+source <(kubectl completion zsh)
+# kompose completion
+source <(kompose completion zsh)
