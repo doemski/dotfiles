@@ -122,7 +122,7 @@ set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 
-" 80 char ruler
-set colorcolumn=80
+" 88 char ruler
+set colorcolumn=88
 highlight ColorColumn ctermbg=233
 
