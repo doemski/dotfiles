@@ -8,7 +8,9 @@ export ZSH=$HOME/.oh-my-zsh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="clean"
+#
+# ZSH_THEME="clean"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -98,10 +100,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias kubeSP="kubectl -n=streampipes"
-alias kubeU="kubectl -n=unicorn"
-alias kubeLA="kubectl -n=lionaid"
-
 source /home/doemski/.zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Python pyenv stuff
@@ -122,11 +120,27 @@ export PATH="/home/doemski/sonar-scanner/sonar-scanner-4.0.0.1744-linux/bin:$PAT
 # Add apache-jmeter to path
 export PATH="$PATH:/home/doemski/apache-jmeter/bin"
 
+# Add snap packages to path
+export PATH="$PATH:/home/doemski/snap"
+
 # Add z 
 source /home/doemski/z.sh
 
 # Kubernetes stuff
 # kubectl completion
 source <(kubectl completion zsh)
-# kompose completion
-source <(kompose completion zsh)
+alias k='kubectl --kubeconfig ~/.kube/config -n script-testing'
+alias kh='kubectl --kubeconfig ~/.kube/config -n hive'
+alias kd='kubectl --kubeconfig ~/.kube/config -n hive-dev'
+
+# Default Editor
+export VISUAL=vim
+export EDITOR="$VISUAL"
+
+# Use neovim if available
+if type nvim > /dev/null 2>&1; then
+  alias vim='nvim'
+fi
+
+# Connect to WIFI
+alias edi-wifi="echo 9066952532512853 | nmcli c up WLAN-J6AUJ3 --ask "

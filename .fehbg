@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --bg-scale '/home/doemski/Pictures/wallpapers/hexagons.jpg' 
+feh --no-fehbg --bg-scale '/home/doemski/Pictures/wallpapers/ubuntu-1.png' 
