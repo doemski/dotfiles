@@ -1,9 +1,6 @@
 "https://dougblack.io/words/a-good-vimrc.html START
 
 
-"Necessary for cool features of vim
-set nocompatible
-
 " Mouse support only in normal mode
 set mouse=n
 
@@ -60,7 +57,11 @@ Plug 'tmhedberg/SimpylFold'
 Plug 'dracula/vim', { 'as': 'dracula' }
  " Swap windows with <leader>ww
 Plug 'wesQ3/vim-windowswap'
+ " fFtT-search Highlighting
+Plug 'unblevable/quick-scope'
  " Python Specific
+ " Python Highlighting
+Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
  " Python PEP8 indentation 
 Plug 'Vimjas/vim-python-pep8-indent'
  " Python Text Objects 
@@ -74,7 +75,9 @@ let python_highlight_all=1
 
 " Python Linter
 let g:ale_linters = {'python': ['pylint']}
-" Folding
+
+" Python Folding
+" set foldmethod=indent
 let g:SimpylFold_docstring_preview=1
 
 "tabs
@@ -100,11 +103,6 @@ set showmatch           " highlight matching [{()}]
 
 "searching
 set incsearch           " search as characters are entered
-
-"movement
-"move vertically by visual line
-" nnoremap j gj
-" nnoremap k gk
 
 "toggle gundo
 nnoremap <leader>u :UndotreeToggle<CR>
