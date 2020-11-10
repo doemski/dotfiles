@@ -59,6 +59,8 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'wesQ3/vim-windowswap'
  " fFtT-search Highlighting
 Plug 'unblevable/quick-scope'
+ " Terminal improvement + REPL support
+Plug 'kassio/neoterm'
  " Python Specific
  " Python Highlighting
 Plug 'numirias/semshi', {'do': ':UpdateRemotePlugins'}
@@ -87,6 +89,7 @@ set expandtab       " tabs are spaces
 
 "UI
 set number relativenumber           " show line numbers
+
 "Line number toggle
 augroup numbertoggle
   autocmd!
@@ -101,6 +104,10 @@ set wildmenu            " visual autocomplete for command menu
 set lazyredraw          " redraw only when we need to.
 set showmatch           " highlight matching [{()}]
 
+" 88 char ruler
+set colorcolumn=88
+highlight ColorColumn ctermbg=233
+
 "searching
 set incsearch           " search as characters are entered
 
@@ -113,19 +120,39 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
+" Resizing commands: set to/inc: ':res (+-)10', full-height 'CTRL+w _'
+
 "move auto-generated files to .vim folder
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 
-" 88 char ruler
-set colorcolumn=88
-highlight ColorColumn ctermbg=233
+ " ALE Settings
+let g:ale_sign_error = '●'
+let g:ale_sign_warning = '.'
 
+ " GitGutter
+let g:gitgutter_sign_added = '++'
+let g:gitgutter_sign_modified = '~~'
+let g:gitgutter_sign_removed = '--'
 
+ 
+ " neoterm settings
+let g:neoterm_autoscroll = '1'
+let g:neoterm_size = 14
+let g:neoterm_default_mod = 'botright'
+let g:neoterm_repl_python = 'python'
+command! -nargs=+ TT Topen | T <args>
+nnoremap <leader>t :TT<space>
+nnoremap <Leader>tt :Ttoggle <cr> 
+nnoremap <Leader>tc :Tclose <cr> 
+nnoremap <Leader>tl :Tclear <cr> 
+vnoremap <Leader>tr :TREPLSendSelection
+nnoremap <Leader>tr :TREPLSendLine
+nnoremap <Leader>tm :Tmap
+let g:neoterm_automap_keys = '<F5>'
 
-
-" Coc autocomplete"
+ " Coc autocomplete"
 call coc#config('python', {'pythonPath': $PYENV_VIRTUAL_ENV})
 "
 "
