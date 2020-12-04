@@ -75,11 +75,9 @@ colorscheme dracula
 syntax enable           " enable syntax processing
 let python_highlight_all=1
 
-" Python Linter
-let g:ale_linters = {'python': ['pylint']}
 
 " Python Folding
-" set foldmethod=indent
+set foldmethod=indent
 let g:SimpylFold_docstring_preview=1
 
 "tabs
@@ -110,6 +108,7 @@ highlight ColorColumn ctermbg=233
 
 "searching
 set incsearch           " search as characters are entered
+nnoremap <leader><space> :noh<CR>
 
 "toggle gundo
 nnoremap <leader>u :UndotreeToggle<CR>
@@ -130,11 +129,25 @@ set undodir=~/.vim/undo//
  " ALE Settings
 let g:ale_sign_error = '●'
 let g:ale_sign_warning = '.'
+let g:ale_linters = {'python': ['pylint']}
+nnoremap <leader>A :ALEPrevious -wrap <cr>
+nnoremap <leader>a :ALENext -wrap <cr>
+nnoremap <leader>E :ALEPrevious -wrap -error<cr>
+nnoremap <leader>e :ALENext -wrap -error<cr>
+
+ " NERDTree
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let NERDTreeQuitOnOpen = 1
+let NERDTreeAutoDeleteBuffer = 1 " Delete file
+nnoremap <leader>f :NERDTreeToggle<CR>
 
  " GitGutter
 let g:gitgutter_sign_added = '++'
 let g:gitgutter_sign_modified = '~~'
 let g:gitgutter_sign_removed = '--'
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
 
  
  " neoterm settings
@@ -151,6 +164,10 @@ vnoremap <Leader>tr :TREPLSendSelection
 nnoremap <Leader>tr :TREPLSendLine
 nnoremap <Leader>tm :Tmap
 let g:neoterm_automap_keys = '<F5>'
+
+ " FZF
+nnoremap <leader>o :FZF <cr>
+nnoremap <leader>O :FZF / <cr>
 
  " Coc autocomplete"
 call coc#config('python', {'pythonPath': $PYENV_VIRTUAL_ENV})
