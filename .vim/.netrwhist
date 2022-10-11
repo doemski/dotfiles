@@ -1,11 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/home/doemski/.config/i3'
-let g:netrw_dirhist_2='/home/doemski/.dotfiles/.config'
-let g:netrw_dirhist_3='/home/doemski/.dotfiles/.config/i3'
-let g:netrw_dirhist_4='/home/doemski/.vim'
-let g:netrw_dirhist_5='/home/doemski'
-let g:netrw_dirhist_6='/home'
-let g:netrw_dirhist_7='/'
-let g:netrw_dirhist_8='/home/doemski/.vim'
-let g:netrw_dirhist_9='/home/doemski/sysops/k8s-hive-deploy-script'
+let g:netrw_dirhistcnt =1
+let g:netrw_dirhist_1='/home/doemski/dev/hive/technical-drawing-service-v3/technical_drawing_service_v3/technical_drawings_app/api'

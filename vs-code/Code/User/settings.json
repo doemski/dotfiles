@@ -13,7 +13,7 @@
     "editor.scrollBeyondLastLine": true,
     "editor.lineNumbers": "relative",
     "workbench.iconTheme": "helium-icon-theme",
-    "workbench.colorTheme": "Dracula",
+    "workbench.colorTheme": "Tokyo Night",
     "workbench.editor.enablePreview": false,
     "vim.handleKeys": {
         "<C-b>": false,
@@ -27,4 +27,15 @@
     "vim.leader": " ",
     "openapi.securityAuditToken": "CiDxKxhD7gZPPRZQgTjCulMnkW8MW3Tl8CJoOqhN+YEwXRIYo+A/PDtuuCYsYT8+tf4m/VGYztmCaQ38GnBng3+65mNxoRnKNxQOLV7mtXJCvJlt0wVFP4xL4BZ2Ret6BkTPuqLgGe0CTEfM9Vvd8zdfH0GskTm+SQLtpMR87jWsbkB81NZ4pbMvryujFzXmN18pO6frHd/zuIqZhbm53sEa2Ssrq3zIGD4vPSf1",
     "python.pythonPath": "~/.pyenv/versions/nagios_icinga_plugin",
+    "mssql.connections": [
+        {
+            "server": "{{put-server-name-here}}",
+            "database": "{{put-database-name-here}}",
+            "user": "{{put-username-here}}",
+            "password": ""
+        }
+    ],
+    "python.defaultInterpreterPath": "~/.pyenv/versions/nagios_icinga_plugin",
+    "editor.bracketPairColorization.enabled": true,
+    "editor.guides.bracketPairs": "active",
 }
